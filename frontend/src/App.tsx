@@ -13,6 +13,7 @@ function App() {
   
   // dummy data
   // const data = Data.drinks;
+  
   // console.log(data)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +23,7 @@ function App() {
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     getData()
   };
-
+  
   const getData = async () => {
     var config = {
       method: "GET",

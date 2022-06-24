@@ -10,12 +10,12 @@ export default function Card({ drink }: {drink: any}) {
     // get ingredients
     const ingredients = Object.entries(drink).filter?.((n)=>{
         return n[0].includes(`Ingredient`)
-    }).map?.(n => n[1])
+    }).filter?.(n => n[1] !== "").map?.(n => n[1])
 
     // get measurements
     const measurements = Object.entries(drink).filter?.((n) => {
         return n[0].includes('Measure')
-    }).map?.(n => n[1])
+    }).filter?.(n => n[1] !== "").map?.(n => n[1])
 
     console.log(ingredients)
     console.log(measurements)
@@ -33,14 +33,14 @@ export default function Card({ drink }: {drink: any}) {
         
         {/* recipe and ingredients */}
         <div className="flex flex-col">
-            <div className="flex flex-col text-md pt-2 pb-2">
-                <span>Recipe:</span>
-                <span className="text-sm">{drink.strInstructions}</span>
+            <div className="flex flex-col text-md pt-2 pb-2 ">
+                <p className="font-medium">Recipe</p>
+                <span className="text-sm text-justify">{drink.strInstructions}</span>
             </div>
-            <div className="grid grid-cols-2">
-                {/* render ingredients */}
+            {/* render ingredients */}
+            <div className="grid grid-cols-2 break-words">
                 <span>
-                    <span className="text-md">Ingredients</span>
+                    <span className="font-medium">Ingredients</span>
                     <ul className="list-decimal px-4">
                         {
                             ingredients.length > 0 &&
@@ -58,7 +58,7 @@ export default function Card({ drink }: {drink: any}) {
                 </span>
                 {/* render measurements */}
                 <span>
-                    <span className="text-md">Measurements</span>
+                    <span className="font-medium">Measurements</span>
 
                     <ul className="list-decimal px-4">
                         {
