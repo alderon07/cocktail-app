@@ -1,4 +1,4 @@
-export default function Card({ drink }: {drink: any}) {
+export default function Card({ drink }: { drink: any } ) {
     
     // takes out keys with null values from drink
     Object.keys(drink).forEach?.(key => {
@@ -6,7 +6,7 @@ export default function Card({ drink }: {drink: any}) {
             delete drink[key];
         }
     });
-
+    
     // get ingredients
     const ingredients = Object.entries(drink).filter?.((n)=>{
         return n[0].includes(`Ingredient`)
@@ -35,7 +35,9 @@ export default function Card({ drink }: {drink: any}) {
         <div className="flex flex-col">
             <div className="flex flex-col text-md pt-2 pb-2 ">
                 <p className="font-medium">Recipe</p>
-                <span className="text-sm text-justify">{drink.strInstructions}</span>
+                <span className="text-sm text-justify">
+                    {drink.strInstructions}
+                </span>
             </div>
             {/* render ingredients */}
             <div className="grid grid-cols-2 break-words">

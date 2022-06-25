@@ -7,7 +7,7 @@ import List from "./components/List";
 import Data from "./components/data.json";
 
 function App() {
-  const [language, setLanguage] = useState<string>("");
+  // const [language, setLanguage] = useState<string>("");
   const [drink, setDrink] = useState<string>("");
   const [data, setData] = useState<any>({})
   
@@ -20,9 +20,13 @@ function App() {
     return setDrink(event.target.value);
   };
 
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = () => {
     getData()
   };
+
+  // const handleSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   return setLanguage(event.target.value)
+  // }
   
   const getData = async () => {
     var config = {
@@ -32,7 +36,6 @@ function App() {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       params: { s: drink },
-      // data: data,
     };
 
     axios(config)
@@ -51,9 +54,21 @@ function App() {
         <div className="pl-2 mt-5 md:w-1/2">
           <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
         </div>
+        {/* <div>
+          <form>
+            <label>Language: </label>
+            <select className="bg-slate-300 rounded-md" onChange={handleSelection} name="languages" id="languages">
+              <option value="none" selected>English</option>
+              <option value="ES">Spanish</option>
+              <option value="DE">German</option>
+              <option value="FR">French</option>
+              <option value="IT">Italian</option>
+            </select>
+          </form>
+        </div> */}
         <div className="w-11/12">
           {
-            data && <List drinks={data.drinks} />
+            data ? <List drinks={data.drinks}/> : <h1>No Results</h1>
           }
         </div>
       </div>
