@@ -68,7 +68,7 @@ function App() {
         </div> */}
         <div className="w-11/12">
           {
-            data ? <List drinks={data.drinks}/> : <h1>No Results</h1>
+            data.drinks ? <List drinks={data.drinks}/> : <h1>No Results</h1>
           }
         </div>
       </div>

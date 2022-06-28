@@ -46,7 +46,7 @@ export default function Card({ drink }: { drink: any } ) {
                     <ul className="list-decimal px-4">
                         {
                             ingredients.length > 0 &&
-                            ingredients.map?.((ingredient: any, i: number) => {
+                            ingredients.map?.((ingredient: any) => {
                                 return (
                                     <li className="text-sm self-center">
                                         <span>
@@ -65,7 +65,7 @@ export default function Card({ drink }: { drink: any } ) {
                     <ul className="list-decimal px-4">
                         {
                             measurements.length > 0 &&
-                            measurements.map?.((measurement: any, i: number) => {
+                            measurements.map?.((measurement: any) => {
                                 return (
                                     <li className="text-sm self-center">
                                         <span>
