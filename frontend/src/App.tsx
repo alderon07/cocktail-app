@@ -4,7 +4,7 @@ import axios from "axios";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
 import List from "./components/List";
-import Data from "./components/data.json";
+// import Data from "./components/data.json";
 
 function App() {
   // const [language, setLanguage] = useState<string>("");

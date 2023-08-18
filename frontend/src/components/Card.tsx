@@ -23,9 +23,9 @@ export default function Card({ drink }: { drink: any }) {
     .filter?.((n) => n[1] !== "" && n[1] !== "\n" )
     .map?.((n) => n[1]);
 
-  console.log(ingredients);
-  console.log(measurements);
-  console.log(drink);
+  // console.log(ingredients);
+  // console.log(measurements);
+  // console.log(drink);
 
   return (
     <div
@@ -38,7 +38,7 @@ export default function Card({ drink }: { drink: any }) {
           <img
             className="md:w-full"
             src={drink.strDrinkThumb}
-            alt="Picture of drink"
+            alt={drink.strDrink}
           />
         </span>
         <span className="text-xl font-bold self-center">{drink.strDrink}</span>
